@@ -23,15 +23,14 @@ public class Calculator extends Application {
 	public void start(Stage primaryStage) {
 	//create a pane
 	Pane pane = new Pane();
-	
 	//set TextField
-	TextField result = new TextField();
-	result.setEditable(false);
-    result.setMinSize(200, 40);
-    result.textProperty().bind(Bindings.format("RESULT"));
-	result.setLayoutX(0);
-	result.setLayoutY(30);
-        pane.getChildren().add(result);
+	TextField TF = new TextField();
+	TF.setEditable(false);
+    TF.setMinSize(200, 40);
+    TF.setText("0");
+	TF.setLayoutX(0);
+	TF.setLayoutY(30);
+        pane.getChildren().add(TF);
 	
 	//set Menu and MenuItems
 	final MenuBar menuBar = new MenuBar();
@@ -64,11 +63,6 @@ public class Calculator extends Application {
 	Button btDiv = new Button("/");
 	Button btCE = new Button("CE");
 	Button btC = new Button("C");
-	Button btMC = new Button("MC");
-	Button btMR = new Button("MR");
-	Button btMS = new Button("MS");
-	Button btMP = new Button("M+");
-	Button btMM = new Button("M-");
 	Button btP = new Button("<-");
 	Button btPS = new Button("+/-");
 	Button btR = new Button("root");
@@ -77,21 +71,6 @@ public class Calculator extends Application {
 	Button btPer = new Button("%");
 	Button btD = new Button(".");
 	//and set their X and Y
-	pane.getChildren().add(btMC);
-	btMC.setLayoutX(10);
-	btMC.setLayoutY(80);
-	pane.getChildren().add(btMR);
-	btMR.setLayoutX(50);
-	btMR.setLayoutY(80);
-	pane.getChildren().add(btMS);
-	btMS.setLayoutX(90);
-	btMS.setLayoutY(80);
-	pane.getChildren().add(btMP);
-	btMP.setLayoutX(130);
-	btMP.setLayoutY(80);
-	pane.getChildren().add(btMM);
-	btMM.setLayoutX(170);
-	btMM.setLayoutY(80);
 	pane.getChildren().add(btP);
 	btP.setLayoutX(10);
 	btP.setLayoutY(110);
@@ -164,10 +143,42 @@ public class Calculator extends Application {
 	btPlus.setLayoutX(130);
 	btPlus.setLayoutY(230);
 
-	
-	
-	
-	
+	bt1.setOnAction(e ->{
+		TF.setText(TF.getText()+"1");
+	});
+	bt2.setOnAction(e ->{
+		TF.setText(TF.getText()+"2");
+	});
+	bt3.setOnAction(e ->{
+		TF.setText(TF.getText()+"3");
+	});
+	bt4.setOnAction(e ->{
+		TF.setText(TF.getText()+"4");
+	});
+	bt5.setOnAction(e ->{
+		TF.setText(TF.getText()+"5");
+	});
+	bt6.setOnAction(e ->{
+		TF.setText(TF.getText()+"6");
+	});
+	bt7.setOnAction(e ->{
+		TF.setText(TF.getText()+"7");
+	});
+	bt8.setOnAction(e ->{
+		TF.setText(TF.getText()+"8");
+	});
+	bt9.setOnAction(e ->{
+		TF.setText(TF.getText()+"9");
+	});
+	bt0.setOnAction(e ->{
+		TF.setText(TF.getText()+"0");
+	});
+	btCE.setOnAction(e ->{
+		TF.setText("0");
+	});
+	btC.setOnAction(e ->{
+		TF.setText("0");
+	});
 	
 	
 	//create a scene
