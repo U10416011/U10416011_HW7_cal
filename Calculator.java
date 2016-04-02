@@ -20,6 +20,9 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.paint.Color;
 
 public class Calculator extends Application {
+	double r = 0;
+	int op;
+	int n;
 	public void start(Stage primaryStage) {
 	//create a pane
 	Pane pane = new Pane();
@@ -63,16 +66,16 @@ public class Calculator extends Application {
 	Button btDiv = new Button("/");
 	Button btCE = new Button("CE");
 	Button btC = new Button("C");
-	Button btP = new Button("<-");
+	Button btP = new Button("DEL");
 	Button btPS = new Button("+/-");
-	Button btR = new Button("root");
+	Button btR = new Button("sqrt");
 	Button btE = new Button("=");
 	Button btINV = new Button("1/x");
-	Button btPer = new Button("%");
+	Button btPer = new Button(" % ");
 	Button btD = new Button(".");
 	//and set their X and Y
 	pane.getChildren().add(btP);
-	btP.setLayoutX(10);
+	btP.setLayoutX(8);
 	btP.setLayoutY(110);
 	pane.getChildren().add(btCE);
 	btCE.setLayoutX(50);
@@ -143,43 +146,145 @@ public class Calculator extends Application {
 	btPlus.setLayoutX(130);
 	btPlus.setLayoutY(230);
 
+	
 	bt1.setOnAction(e ->{
-		TF.setText(TF.getText()+"1");
+		if(TF.getText().length() == 1 && TF.getText().charAt(0) == 48)//char 48 is int 0
+			TF.setText("1");
+		else
+			TF.setText(TF.getText()+"1");
 	});
 	bt2.setOnAction(e ->{
-		TF.setText(TF.getText()+"2");
+		if(TF.getText().length() == 1 && TF.getText().charAt(0) == 48)//char 48 is int 0
+			TF.setText("2");
+		else
+			TF.setText(TF.getText()+"2");
 	});
 	bt3.setOnAction(e ->{
-		TF.setText(TF.getText()+"3");
+		if(TF.getText().length() == 1 && TF.getText().charAt(0) == 48)//char 48 is int 0
+			TF.setText("3");
+		else
+			TF.setText(TF.getText()+"3");
 	});
 	bt4.setOnAction(e ->{
-		TF.setText(TF.getText()+"4");
+		if(TF.getText().length() == 1 && TF.getText().charAt(0) == 48)//char 48 is int 0
+			TF.setText("4");
+		else
+			TF.setText(TF.getText()+"4");
 	});
 	bt5.setOnAction(e ->{
-		TF.setText(TF.getText()+"5");
+		if(TF.getText().length() == 1 && TF.getText().charAt(0) == 48)//char 48 is int 0
+			TF.setText("5");
+		else
+			TF.setText(TF.getText()+"5");
 	});
 	bt6.setOnAction(e ->{
-		TF.setText(TF.getText()+"6");
+		if(TF.getText().length() == 1 && TF.getText().charAt(0) == 48)//char 48 is int 0
+			TF.setText("6");
+		else
+			TF.setText(TF.getText()+"6");
 	});
 	bt7.setOnAction(e ->{
-		TF.setText(TF.getText()+"7");
+		if(TF.getText().length() == 1 && TF.getText().charAt(0) == 48)//char 48 is int 0
+			TF.setText("7");
+		else
+			TF.setText(TF.getText()+"7");
 	});
 	bt8.setOnAction(e ->{
-		TF.setText(TF.getText()+"8");
+		if(TF.getText().length() == 1 && TF.getText().charAt(0) == 48)//char 48 is int 0
+			TF.setText("8");
+		else
+			TF.setText(TF.getText()+"8");
 	});
 	bt9.setOnAction(e ->{
-		TF.setText(TF.getText()+"9");
+		if(TF.getText().length() == 1 && TF.getText().charAt(0) == 48)//char 48 is int 0
+			TF.setText("9");
+		else
+			TF.setText(TF.getText()+"9");
 	});
 	bt0.setOnAction(e ->{
-		TF.setText(TF.getText()+"0");
+		if(TF.getText().length() == 1 && TF.getText().charAt(0) == 48)//char 48 is int 0
+			TF.setText("0");
+		else
+			TF.setText(TF.getText()+"0");
 	});
 	btCE.setOnAction(e ->{
 		TF.setText("0");
+		r = 0;
 	});
 	btC.setOnAction(e ->{
 		TF.setText("0");
+		r = 0;
 	});
 	
+	btPlus.setOnAction(e ->{
+		r = Double.parseDouble(TF.getText());
+		TF.setText(Integer.toString(0));
+		op = 1;
+		
+	});
+	btSub.setOnAction(e ->{
+			r = Double.parseDouble(TF.getText());
+			TF.setText(Integer.toString(0));
+		op = 2;
+		
+	});
+	btMul.setOnAction(e ->{
+		r = Double.parseDouble(TF.getText());
+		TF.setText(Integer.toString(0));
+	op = 3;
+	});
+	btDiv.setOnAction(e ->{
+		r = Double.parseDouble(TF.getText());
+		TF.setText(Integer.toString(0));
+	op = 4;
+	});
+	btPer.setOnAction(e ->{
+		r = Double.parseDouble(TF.getText())/100;
+		TF.setText(String.valueOf(r));
+	});
+	btPS.setOnAction(e ->{
+		r = -Double.parseDouble(TF.getText());
+		TF.setText(String.valueOf(r));
+	});
+	btR.setOnAction(e ->{
+		r = Math.sqrt(Double.parseDouble(TF.getText()));
+		TF.setText(String.valueOf(r));
+	});
+	btINV.setOnAction(e ->{
+		r = 1/Double.parseDouble(TF.getText());
+		TF.setText(String.valueOf(r));
+	});
+	btP.setOnAction(e ->{
+		TF.setText(TF.getText().substring(0,TF.getText().length() - 1));
+		if(TF.getText().length() == 0){
+			TF.setText(Integer.toString(0));
+		}
+	});
+	btD.setOnAction(e ->{
+		if (TF.getText().indexOf(".") < 0)
+			TF.setText(new String(TF.getText() + "."));
+	});
+	btE.setOnAction(e ->{
+		n = Integer.parseInt(TF.getText());;
+		switch(op){
+		case 1:
+			r += n;
+			break;
+		case 2:
+			r -= n;
+			break;
+		case 3:
+			r *=n;
+			break;
+		case 4:
+			r /=n;
+			break;
+		default :
+			break;
+		}
+		
+		TF.setText(String.valueOf(r));
+	});
 	
 	//create a scene
 	Scene scene = new Scene(pane);
