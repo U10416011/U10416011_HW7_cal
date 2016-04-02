@@ -207,64 +207,66 @@ public class Calculator extends Application {
 		else
 			TF.setText(TF.getText()+"0");
 	});
-	btCE.setOnAction(e ->{
+	btCE.setOnAction(e ->{//clean
 		TF.setText("0");
 		r = 0;
+		n = 0;
 	});
-	btC.setOnAction(e ->{
+	btC.setOnAction(e ->{//clean
 		TF.setText("0");
 		r = 0;
+		n =0;
 	});
 	
-	btPlus.setOnAction(e ->{
+	btPlus.setOnAction(e ->{//plus
 		r = Double.parseDouble(TF.getText());
 		TF.setText(Integer.toString(0));
 		op = 1;
 		
 	});
-	btSub.setOnAction(e ->{
+	btSub.setOnAction(e ->{//Subtract
 			r = Double.parseDouble(TF.getText());
 			TF.setText(Integer.toString(0));
 		op = 2;
 		
 	});
-	btMul.setOnAction(e ->{
+	btMul.setOnAction(e ->{//Multiply
 		r = Double.parseDouble(TF.getText());
 		TF.setText(Integer.toString(0));
 	op = 3;
 	});
-	btDiv.setOnAction(e ->{
+	btDiv.setOnAction(e ->{//Divide
 		r = Double.parseDouble(TF.getText());
 		TF.setText(Integer.toString(0));
 	op = 4;
 	});
-	btPer.setOnAction(e ->{
+	btPer.setOnAction(e ->{//percent
 		r = Double.parseDouble(TF.getText())/100;
 		TF.setText(String.valueOf(r));
 	});
-	btPS.setOnAction(e ->{
+	btPS.setOnAction(e ->{//change +/-
 		r = -Double.parseDouble(TF.getText());
 		TF.setText(String.valueOf(r));
 	});
-	btR.setOnAction(e ->{
+	btR.setOnAction(e ->{//square root
 		r = Math.sqrt(Double.parseDouble(TF.getText()));
 		TF.setText(String.valueOf(r));
 	});
-	btINV.setOnAction(e ->{
+	btINV.setOnAction(e ->{//1/x
 		r = 1/Double.parseDouble(TF.getText());
 		TF.setText(String.valueOf(r));
 	});
-	btP.setOnAction(e ->{
+	btP.setOnAction(e ->{//del
 		TF.setText(TF.getText().substring(0,TF.getText().length() - 1));
 		if(TF.getText().length() == 0){
 			TF.setText(Integer.toString(0));
 		}
 	});
-	btD.setOnAction(e ->{
+	btD.setOnAction(e ->{//dot
 		if (TF.getText().indexOf(".") < 0)
 			TF.setText(new String(TF.getText() + "."));
 	});
-	btE.setOnAction(e ->{
+	btE.setOnAction(e ->{//equal
 		n = Integer.parseInt(TF.getText());;
 		switch(op){
 		case 1:
